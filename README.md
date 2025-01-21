@@ -1,2 +1,1 @@
-# evacuacion-tsunami
-Recursos del Plan de Evacuación ante Tsunami 2025
+## Recursos del Plan de Evacuación ante Tsunami 2025
