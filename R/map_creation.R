@@ -2,28 +2,14 @@ library(htmlwidgets)
 library(leaflet)
 library(sf)
 
-data_version = "20250121"
-target_parroquia = c(manta = "Manta")
+rutas_filter = filter(rutas, parroquia == target_parroquia)
 
-tsunami = read_sf(data_gpkg, "inocar2019_area_inundacion") |>
-   st_zm() |> st_transform(4326) |> st_simplify(dTolerance = 5)
+zonas_filter = filter(zonas, parroquia == target_parroquia)
 
-rutas = read_sf(paste0("data/manta_pet_rutas_", data_version, ".geojson")) |>
-   filter(parroquia == target_parroquia)
-
-zonas = read_sf(paste0("data/manta_pet_zonas_", data_version, ".geojson")) |>
-   filter(parroquia == target_parroquia) |>
-   st_centroid()
-
-puntos = read_sf(paste0("data/manta_pet_puntos_", data_version, ".geojson")) |>
-   filter(parroquia == target_parroquia)
-
-zonas_icon = list(iconUrl = "data/zs.png", iconSize = c(33, 33))
-
-puntos_icon = list(iconUrl = "data/pe.png", iconSize = c(20, 20))
+puntos_filter = filter(puntos, parroquia == target_parroquia)
 
 target_map = leaflet(options = leafletOptions(minZoom = 14, maxZoom = 18)) |>
-   setView(-80.723, -0.949, 16) |>
+   setView(parroquias_center[1,target_parroquia], parroquias_center[2,target_parroquia], 16) |>
    setMaxBounds(-80.92, -1.14, -80.66, -0.92) |>
    addTiles('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png') |>
    addPolygons(data = tsunami, fillColor = "red", weight = 0) |>
