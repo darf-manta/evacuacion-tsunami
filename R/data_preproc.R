@@ -3,6 +3,12 @@ library(sf)
 
 data_gpkg = "tmp/manta_evacuacion_tsunami_rev09.gpkg"
 
+data_tsunami = read_sf(data_gpkg, "inocar2019_area_inundacion") |>
+   st_zm() |> st_transform(4326) |>
+   st_simplify(dTolerance = 5)
+
+write_sf(data_tsunami, paste0("data/manta_pet_tsunami_", format(Sys.Date(), "%Y%m%d"), ".geojson"))
+
 data_zonas = read_sf(data_gpkg, "gadm2024_zonas_seguras") |>
    select(id_zona, nom_zona, parroquia, maps_url) |>
    st_transform(4326)
