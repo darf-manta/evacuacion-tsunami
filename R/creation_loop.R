@@ -33,5 +33,19 @@ parroquias_center = c(
 ) |> matrix(dimnames = list(1:2, parroquias), nrow = 2)
 
 for(target_parroquia in parroquias) {
+   target_html = paste0("docs/parroquia-", sub(" ", "-", tolower(target_parroquia)), ".html")
+
    source("R/map_creation.R")
+
+   target_html_content = readLines(target_html)
+
+   i = which(target_html_content == "</head>")
+
+   target_html_content = c(
+      target_html_content[ 1 : i ], "",
+      readLines("HTML/enhance_zoom.html"), "",
+      target_html_content[ (i+1) : length(target_html_content) ]
+   )
+
+   writeLines(target_html_content, target_html)
 }

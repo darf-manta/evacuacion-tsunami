@@ -34,8 +34,6 @@ target_map = leaflet(options = leafletOptions(minZoom = 14, maxZoom = 19)) |>
                              if_else(nom_zona == "sin zona segura", "AQUÍ FINALIZA LA EVACUACIÓN",
                                      paste("dirigirse a la Zona Segura<b>:", nom_zona, "</b>"))))
 
-target_map |> saveWidget(
-   paste0("docs/parroquia-", sub(" ", "-", tolower(target_parroquia)), ".html"),
-   title = paste("Mapa de rutas de evacuación ante Tsnami – Parroquia", target_parroquia),
-   selfcontained = FALSE, libdir = "libs"
+saveWidget(target_map, target_html, selfcontained = FALSE, libdir = "libs",
+           title = paste("Mapa de rutas de evacuación ante Tsnami – Parroquia", target_parroquia)
 )
