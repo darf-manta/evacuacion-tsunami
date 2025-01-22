@@ -17,9 +17,9 @@ target_map = leaflet(options = leafletOptions(minZoom = 14, maxZoom = 19)) |>
                                 'data &amp &copy; <a href="https://carto.com">CARTO</a> tiles')) |>
    addPolygons(data = tsunami, fillColor = "red", weight = 0, options = paths,
                group = "Área de Inundación por Tsunami") |>
-   addPolylines(data = rutas_filter, color = "red", weight = 6, opacity = 1, options = paths,
+   addPolylines(data = rutas_filter, color = "red", weight = 9, opacity = 0.9, options = paths,
                 group = "Rutas de Evacuación") |>
-   addPolylines(data = rutas_filter, color = "yellow", opacity = 0.9, popupOptions = popups,
+   addPolylines(data = rutas_filter, color = "yellow", weight = 7, opacity = 0.9, popupOptions = popups,
                 group = "Rutas de Evacuación",
                 highlightOptions = highlightOptions(opacity = 1),
                 popup = ~if_else(nom_punto != "sin punto de encuentro",

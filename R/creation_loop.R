@@ -11,11 +11,11 @@ rutas = read_sf(paste0("data/manta_pet_rutas_", data_version, ".geojson"))
 
 zonas = read_sf(paste0("data/manta_pet_zonas_", data_version, ".geojson")) |> st_centroid()
 
-zonas_icon = list(iconUrl = "data/zs.png", iconSize = c(50, 50))
+zonas_icon = list(iconUrl = "data/zs.png", iconSize = c(80, 80))
 
 puntos = read_sf(paste0("data/manta_pet_puntos_", data_version, ".geojson"))
 
-puntos_icon = list(iconUrl = "data/pe.png", iconSize = c(35, 35))
+puntos_icon = list(iconUrl = "data/pe.png", iconSize = c(50, 50))
 
 paths = pathOptions(interactive = FALSE)
 
