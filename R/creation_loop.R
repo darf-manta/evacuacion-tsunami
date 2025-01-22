@@ -1,3 +1,8 @@
+library(dplyr)
+library(htmlwidgets)
+library(leaflet)
+library(sf)
+
 data_version = "20250121"
 
 tsunami = read_sf(paste0("data/manta_pet_tsunami_", data_version, ".geojson"))
@@ -13,8 +18,6 @@ puntos = read_sf(paste0("data/manta_pet_puntos_", data_version, ".geojson"))
 puntos_icon = list(iconUrl = "data/pe.png", iconSize = c(20, 20))
 
 parroquias = c("Manta", "Tarqui", "Los Esteros", "San Mateo", "Santa Marianita", "San Lorenzo")
-
-names(parroquias) = c("manta", "tarqui", "los-esteros", "san-mateo", "sta-marianita", "san-lorenzo")
 
 parroquias_center = c(
    c(-80.723, -0.951),
