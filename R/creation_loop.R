@@ -48,4 +48,11 @@ for(target_parroquia in parroquias) {
    )
 
    writeLines(target_html_content, target_html)
+
+   paste0(
+      "qrencode -l M -s 15 --foreground=005aab -o QR/",
+      sub(" ", "-", tolower(target_parroquia)),
+      ".png 'https://darf-manta.github.io/evacuacion-tsunami/parroquia-",
+      sub(" ", "-", tolower(target_parroquia)), ".html'"
+   ) |> system()
 }
