@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- generated via ecosia.org/chat -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Montserrat, Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            color: #005aab;
+            margin: 0;
+            padding: 48px 96px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+        }
+        .gallery h3 {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<span>GADM del Cantón Manta &ndash; Dirección de Ambiente, Riesgos y Fauna Urbana</span>
+<h1>Mapas de Evacuación ante Tsunami</h1>
+<span>(escanea el QR de tu parroquia para acceder al mapa)</span>
+<div class="gallery">
+    <div>
+        <img src="qrs/manta.png" alt="Parroquia Manta">
+        <a href="parroquia-manta.html">Parroquia Manta</a>
+    </div>
+    <div>
+        <img src="qrs/tarqui.png" alt="Parroquia Tarqui">
+        <a href="parroquia-tarqui.html">Parroquia Tarqui</a>
+    </div>
+    <div>
+        <img src="qrs/los-esteros.png" alt="Parroquia Los Esteros">
+        <a href="parroquia-los-esteros.html">Parroquia Los Esteros</a>
+    </div>
+    <div>
+        <img src="qrs/san-mateo.png" alt="Parroquia San Mateo">
+        <a href="parroquia-san-mateo.html">Parroquia San Mateo</a>
+    </div>
+    <div>
+        <img src="qrs/santa-marianita.png" alt="Parroquia Santa Marianita">
+        <a href="parroquia-santa-marianita.html">Parroquia Santa Marianita</a>
+    </div>
+    <div>
+        <img src="qrs/san-lorenzo.png" alt="Parroquia San Lorenzo">
+        <a href="parroquia-san-lorenzo.html">Parroquia San Lorenzo</a>
+    </div>
+</div>
+</body>
+</html>
