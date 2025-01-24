@@ -11,6 +11,7 @@ target_map = leaflet(options = leafletOptions(minZoom = 14, maxZoom = 19)) |>
    addLayersControl(options = layersControlOptions(collapsed = FALSE),
                     overlayGroups = c("Área de Inundación por Tsunami", "Rutas de Evacuación",
                                       "Puntos de Encuentro", "Zonas Seguras")) |>
+   onRender("function(el, x){ L.control.locate().addTo(this); }") |>
    addTiles('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
             options = tileOptions(maxZoom = 19),
             attribution = paste('&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a>',
@@ -34,6 +35,5 @@ target_map = leaflet(options = leafletOptions(minZoom = 14, maxZoom = 19)) |>
                              if_else(nom_zona == "sin zona segura", "AQUÍ FINALIZA LA EVACUACIÓN",
                                      paste("dirigirse a la Zona Segura<b>:", nom_zona, "</b>"))))
 
-saveWidget(target_map, target_html, selfcontained = FALSE, libdir = "libs",
-           title = paste("Mapa de rutas de evacuación ante Tsnami – Parroquia", target_parroquia)
-)
+saveWidget(target_map, file.path("tmp", target_html), selfcontained = FALSE, libdir = "libs",
+           title = paste("Mapa de rutas de evacuación ante Tsnami – Parroquia", target_parroquia))
